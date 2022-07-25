@@ -1,0 +1,3 @@
+*.dSYM
+/snapUtil
+/config.sh
