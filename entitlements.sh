@@ -1,8 +1,8 @@
-source config.sh # Put your developer ID in here using `developerID='putYourDeveloperIDHere'` (it is of the form `Apple Development: yourEmailHere (yourIDNumberOfSomeSortHere)` and can be gotten from the keychain access app on macOS)
+#source config.sh # Put your developer ID in here using `developerID='putYourDeveloperIDHere'` (it is of the form `Apple Development: yourEmailHere (yourIDNumberOfSomeSortHere)` and can be gotten from the keychain access app on macOS)
 
 security find-identity -v -p codesigning
 # Use this to put into the "-s" arg here:
-codesign --force -s "$developerID" --entitlements snapUtil.entitlements snapUtil
+codesign --force -s "$developerID" --entitlements snapUtil.entitlements --deep snapUtil
 # Now sudo ./snapUtil works!
 # Disable SIP too: `csrutil disable` and `nvram boot-args= amfi_get_out_of_my_way=0x1`... maybe..: https://github.com/ahl/apfs/issues/2 : {"
 # I managed to run it on Catalina with these two steps:
